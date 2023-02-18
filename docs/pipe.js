@@ -7,7 +7,7 @@ let timeSinceLastPipe = 0;
 let passedPipeCount = 0;
 
 const fillerPipe = new Image();
-fillerPipe.src = 'pipe-filler.png';
+fillerPipe.src = 'img/pipe-filler.png';
 
 export function resetPipes() {
   pipes = [];
@@ -96,9 +96,9 @@ const createPipe = (ctx) => {
   pipe.passed = false;
   pipe.images = {};
   pipe.images.top = new Image();
-  pipe.images.top.src = 'pipe-top.png';
+  pipe.images.top.src = 'img/pipe-top.png';
   pipe.images.bottom = new Image();
-  pipe.images.bottom.src = 'pipe-bottom.png';
+  pipe.images.bottom.src = 'img/pipe-bottom.png';
   pipe.dX = ctx.canvas.width;
   pipe.holeTop = getRandomValue(ctx.canvas.height * 0.15, ctx.canvas.height * 0.8 - holeHeight * 1.5);
   return pipe;

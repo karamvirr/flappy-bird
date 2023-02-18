@@ -19,12 +19,12 @@ let gameInProgress = false;
 
 const background = {};
 background.image = new Image();
-background.image.src = 'background.png';
+background.image.src = 'img/background.png';
 background.offsetX = 0;
 
 const foreground = {};
 foreground.image = new Image();
-foreground.image.src = 'foreground.png';
+foreground.image.src = 'img/foreground.png';
 foreground.offsetX = 0;
 
 // timeSinceOrigin - milliseconds

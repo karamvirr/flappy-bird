@@ -2,7 +2,7 @@ import { playFlapAudio } from './audio.js';
 
 const bird = {};
 bird.image = new Image();
-bird.image.src = 'bird.png';
+bird.image.src = 'img/bird.png';
 
 const birdSpeed = 1 / 3;
 
