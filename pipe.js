@@ -1,3 +1,5 @@
+import { playPointIncrementAudio } from './audio.js';
+
 let pipes = [];
 const pipeInterval = 1850;
 let holeHeight = null;
@@ -45,6 +47,7 @@ export function drawPipes(ctx, delta, gameInProgress, speed) {
 
     pipes.forEach((pipe) => {
       if (pipe.dX + ctx.canvas.width * 0.15  < ctx.canvas.width * 0.2 && !pipe.passed) {
+        playPointIncrementAudio();
         pipe.passed = true;
         passedPipeCount++;
       }

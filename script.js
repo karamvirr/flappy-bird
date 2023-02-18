@@ -1,5 +1,6 @@
 import { drawBird, resetBird, getBirdRect } from './bird.js';
 import { drawPipes, resetPipes, getLeadingPipeRect } from './pipe.js';
+import { playGameOverAudio } from './audio.js';
 
 const canvas = document.querySelector('canvas');
 const { width, height } = canvas.getBoundingClientRect();
@@ -78,6 +79,7 @@ const gameOver = () => {
 };
 
 const handleLose = () => {
+  playGameOverAudio();
   setTimeout(() => {
     stop();
     resetBird(ctx);

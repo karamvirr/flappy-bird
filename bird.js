@@ -1,3 +1,5 @@
+import { playFlapAudio } from './audio.js';
+
 const bird = {};
 bird.image = new Image();
 bird.image.src = 'bird.png';
@@ -88,6 +90,7 @@ export function drawBird(ctx, delta, frames, gameInProgress) {
 };
 
 const handleJump = () => {
+  playFlapAudio();
   bird.speed = -bird.jump;
   degree = -25;
 };
