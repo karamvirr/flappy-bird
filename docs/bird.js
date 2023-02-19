@@ -4,8 +4,6 @@ const bird = {};
 bird.image = new Image();
 bird.image.src = 'img/bird.png';
 
-const birdSpeed = 1 / 3;
-
 const gravity = 0.25;
 const jumpDuration = 125;
 let timeSinceLastJump = 0;
@@ -13,7 +11,7 @@ const spriteUpdateTime = 150;
 let timeSinceLastSpriteUpdate = 0;
 let degree = 0;
 
-export function getBirdRect(ctx) {
+export function getBirdRect() {
   return {
     left: bird.dX,
     top: bird.dY,
@@ -43,6 +41,12 @@ export function resetBird(ctx) {
 }
 
 export function drawBird(ctx, delta, frames, gameInProgress) {
+  if (bird.image.width == 0) {
+    return;
+  }
+  if (bird.sX == null || bird.sY == null || bird.sWidth == null || bird.sHeight == null) {
+    resetBird(ctx);
+  }
   if (!gameInProgress) {
     bird.dY = bird.dY + Math.cos(frames * Math.PI / 180) * 0.5;
   } else {

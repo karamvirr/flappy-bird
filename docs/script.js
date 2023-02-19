@@ -62,20 +62,20 @@ const writeScoreText = () => {
 };
 
 const gameOver = () => {
-  const bird = getBirdRect(ctx);
+  const bird = getBirdRect();
   const pipe = getLeadingPipeRect(ctx);
   if (bird && pipe) {
 
-    if (bird.right >= pipe.top.left && bird.left <= pipe.top.right) {
-      if (bird.top <= pipe.top.bottom) {
+    if (bird.right > pipe.top.left && bird.left < pipe.top.right) {
+      if (bird.top < pipe.top.bottom) {
         return true;
       }
-      if (bird.bottom >= pipe.bottom.top) {
+      if (bird.bottom > pipe.bottom.top) {
         return true;
       }
     }
   }
-  return bird.bottom >= canvas.height * 0.8;
+  return bird.bottom > canvas.height * 0.8;
 };
 
 const handleLose = () => {
@@ -89,6 +89,9 @@ const handleLose = () => {
 };
 
 const drawBackground = () => {
+  if (background.image.width === 0) {
+    return;
+  }
   for (let i = 0; i < Math.ceil(canvas.width / background.image.width) + 1; i++) {
     ctx.drawImage(
       background.image,
@@ -105,6 +108,9 @@ const drawBackground = () => {
 };
 
 const drawForeground = () => {
+  if (foreground.image.width === 0) {
+    return;
+  }
   for (let i = 0; i < Math.ceil(canvas.width / foreground.image.width) + 1; i++) {
     ctx.drawImage(
       foreground.image,
@@ -130,7 +136,6 @@ const stop = () => {
   document.addEventListener('touchstart', start, { once: true });
 };
 
-resetBird(ctx);
 window.requestAnimationFrame(draw);
 
 document.addEventListener('keypress', start, { once: true });

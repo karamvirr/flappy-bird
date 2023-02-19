@@ -1,7 +1,7 @@
 import { playPointIncrementAudio } from './audio.js';
 
 let pipes = [];
-const pipeInterval = 1850;
+const pipeInterval = 2000;
 let holeHeight = null;
 let timeSinceLastPipe = 0;
 let passedPipeCount = 0;
