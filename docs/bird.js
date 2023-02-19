@@ -96,7 +96,7 @@ const handleJump = () => {
 };
 
 
-document.addEventListener('keydown', (event) => {
+document.addEventListener('keyup', (event) => {
   if (event.code === 'Space') {
     handleJump();
   }
